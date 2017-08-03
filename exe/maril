@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'maril'
+
+options = {}
+optparser = OptionParser.new do |opts|
+  opts.banner = "Usage: maril --host your.marathon.host --id /your/marathon/app/id"
+
+  opts.on("-h", "--host HOST", "Marathon Host") do |host|
+    options[:host] = host
+  end
+
+  opts.on("-i", "--id ID", "Marathon Application ID") do |id|
+    options[:id] = id
+  end
+
+  opts.on("-d", "--debug", "Debug Mode. If something wrong, it will print raw error out.") do |debug|
+    options[:debug] = debug
+  end
+end
+optparser.parse!
+if options[:host].nil? || options[:id].nil?
+  puts optparser.help
+  exit
+end
+
+begin
+  generator = Maril::Generator.new(host: options[:host], id: options[:id])
+  puts generator.generate
+rescue => e
+  if options[:debug]
+    puts "PARAMETERS:\n" \
+         "  #{options.inspect}\n\n" \
+         "ERROR MESSAGE:\n" \
+         "  #{e.message}\n\n" \
+         "BACKTRACE:\n" \
+         "  #{e.backtrace.join("\n  ")}"
+  else
+    puts "There is something wrong. Please use debug mode to see more details."
+  end
+end
