@@ -10,7 +10,13 @@ Open your terminal and execute:
 $ gem install maril
 ```
 
-I also provide a greasemonkey userscript. It will add a button on your marathon application page. You just need to click it and the `docker run` command will be saved into your clipboard. You can click [here](https://raw.githubusercontent.com/agate/maril/master/userscript/maril.user.js) to install it.
+I also provide a greasemonkey userscript. It will add a button on your marathon application page. You just need to click it and the `docker run` command will be saved into your clipboard.
+
+![image](https://user-images.githubusercontent.com/21731/28947741-3bc76082-7877-11e7-8564-fed827369626.png)
+
+You can click [here](https://raw.githubusercontent.com/agate/maril/master/userscript/maril.user.js) to install it.
+
+> Remember: You have to either change `@match` or add new `@match` in this userscript to match your marathon site. So that this button can show up.
 
 ## Usage
 
