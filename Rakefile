@@ -13,4 +13,7 @@ task "build_userscript" do
   dis_path = "userscript/maril.user.js"
   content = ERB.new(File.read(src_path)).result(binding)
   File.write(dis_path, content)
+  puts "Compiled #{src_path} => #{dis_path}"
 end
+
+task "build" => "build_userscript"
