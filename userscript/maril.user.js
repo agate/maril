@@ -4,7 +4,7 @@
 // @version      0.1.0
 // @description  Marathon Application Run In Local
 // @author       agate<agate.hao@gmail.com>
-// @match        http://PUT.YOUR.MARATHON.DOMAIN.HERE
+// @match        http://PUT.YOUR.MARATHON.DOMAIN.HERE/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setClipboard
 // ==/UserScript==
