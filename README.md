@@ -17,7 +17,7 @@ I also provide a greasemonkey userscript. It will add a button on your marathon 
 Open your terminal and run:
 
 ```
-$ maril http://your.marathon.domain /your/application/id
+$ maril --host http://your.marathon.domain --id /your/application/id
 ```
 
 ## Development
