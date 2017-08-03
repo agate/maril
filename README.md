@@ -6,7 +6,11 @@ Maril is abbreviation of "Marathon Application Run In Local". Which is a command
 
 Open your terminal and execute:
 
-    $ gem install maril
+```
+$ gem install maril
+```
+
+I also provide a greasemonkey userscript. It will add a button on your marathon application page. You just need to click it and the `docker run` command will be saved into your clipboard. You can click [here](https://raw.githubusercontent.com/agate/maril/master/userscript/maril.user.js) to install it.
 
 ## Usage
 
