@@ -21,7 +21,7 @@
       url: url,
       onload: function(response) {
         let app = JSON.parse(response.responseText).app;
-        let cmd = [ "docker run" ];
+        let cmd = [ "docker run --rm -it" ];
 
         for (var key in app.env) {
           cmd.push(`-e ${key}=${app.env[key]}`);
@@ -34,7 +34,7 @@
         });
         cmd.push(app.container.docker.image);
 
-        GM_setClipboard(cmd.join(" \\\n"));
+        GM_setClipboard(cmd.join(" "));
         alert("Already saved the docker run command into your clipboard.");
       },
       onerror: (response) => {
