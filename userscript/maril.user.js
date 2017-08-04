@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Maril
 // @namespace    https://github.com/agate/maril
-// @version      0.1.1
+// @version      0.1.2
 // @description  Marathon Application Run In Local
 // @author       agate<agate.hao@gmail.com>
 // @match        http://PUT.YOUR.MARATHON.DOMAIN.HERE/*
@@ -24,7 +24,7 @@
         let cmd = [ "docker run --rm -it" ];
 
         for (var key in app.env) {
-          cmd.push(`-e ${key}=${app.env[key]}`);
+          cmd.push(`--env ${key}=${app.env[key]}`);
         }
         app.container.docker.parameters.forEach((parameter) => {
           cmd.push(`--${parameter.key} ${parameter.value}`);
@@ -34,7 +34,7 @@
         });
         cmd.push(app.container.docker.image);
 
-        GM_setClipboard(cmd.join(" "));
+        GM_setClipboard(cmd.join(" \\\n"));
         alert("Already saved the docker run command into your clipboard.");
       },
       onerror: (response) => {

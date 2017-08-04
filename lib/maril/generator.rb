@@ -9,7 +9,7 @@ module Maril
       app = fetch_app
       cmd = [ 'docker run --rm -it' ]
       app['env'].each do |k, v|
-        cmd << "-e #{k}=#{v}"
+        cmd << "--env #{k}=#{v}"
       end
       app['container']['docker']['parameters'].each do |parameter|
         cmd << "--#{parameter['key']} #{parameter['value']}"
@@ -19,7 +19,7 @@ module Maril
       end
       cmd << app['container']['docker']['image']
       cmd << app['cmd'] if app['cmd']
-      cmd.join(" ")
+      cmd.join(" \\\n")
     end
 
     private
