@@ -4,7 +4,7 @@
 // @version      0.1.0
 // @description  Marathon Application Run In Local
 // @author       agate<agate.hao@gmail.com>
-// @match        http://PUT.YOUR.MARATHON.DOMAIN.HERE
+// @match        http://PUT.YOUR.MARATHON.DOMAIN.HERE/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setClipboard
 // ==/UserScript==
@@ -21,7 +21,7 @@
       url: url,
       onload: function(response) {
         let app = JSON.parse(response.responseText).app;
-        let cmd = [ "docker run" ];
+        let cmd = [ "docker run --rm -it" ];
 
         for (var key in app.env) {
           cmd.push(`-e ${key}=${app.env[key]}`);
@@ -34,7 +34,7 @@
         });
         cmd.push(app.container.docker.image);
 
-        GM_setClipboard(cmd.join(" \\\n"));
+        GM_setClipboard(cmd.join(" "));
         alert("Already saved the docker run command into your clipboard.");
       },
       onerror: (response) => {

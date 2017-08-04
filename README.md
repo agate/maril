@@ -23,7 +23,7 @@ You can click [here](https://raw.githubusercontent.com/agate/maril/master/usersc
 Open your terminal and run:
 
 ```
-$ maril http://your.marathon.domain /your/application/id
+$ maril --host http://your.marathon.domain --id /your/application/id
 ```
 
 ## Development

@@ -7,7 +7,7 @@ module Maril
 
     def generate
       app = fetch_app
-      cmd = [ 'docker run' ]
+      cmd = [ 'docker run --rm -it' ]
       app['env'].each do |k, v|
         cmd << "-e #{k}=#{v}"
       end
@@ -19,7 +19,7 @@ module Maril
       end
       cmd << app['container']['docker']['image']
       cmd << app['cmd'] if app['cmd']
-      cmd.join(" \\\n")
+      cmd.join(" ")
     end
 
     private
