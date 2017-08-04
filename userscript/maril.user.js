@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Maril
 // @namespace    https://github.com/agate/maril
-// @version      0.1.0
+// @version      0.1.1
 // @description  Marathon Application Run In Local
 // @author       agate<agate.hao@gmail.com>
 // @match        http://PUT.YOUR.MARATHON.DOMAIN.HERE/*
